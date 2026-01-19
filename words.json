@@ -1,1 +1,1952 @@
-
+[
+  {
+    "word": "maintain",
+    "meanings": [
+      { "pos": "동사", "meaning": "유지하다" }
+    ]
+  },
+  {
+    "word": "reveal",
+    "meanings": [
+      { "pos": "동사", "meaning": "드러내다" },
+      { "pos": "동사", "meaning": "폭로하다" }
+    ]
+  },
+  {
+    "word": "aggressive",
+    "meanings": [
+      { "pos": "형용사", "meaning": "공격적인" },
+      { "pos": "형용사", "meaning": "난폭한" }
+    ]
+  },
+  {
+    "word": "medium",
+    "meanings": [
+      { "pos": "명사", "meaning": "수단" },
+      { "pos": "명사", "meaning": "매체" },
+      { "pos": "형용사", "meaning": "중간의" }
+    ]
+  },
+  {
+    "word": "exposure",
+    "meanings": [
+      { "pos": "명사", "meaning": "노출" },
+      { "pos": "명사", "meaning": "폭로" },
+      { "pos": "명사", "meaning": "탄로" }
+    ]
+  },
+  {
+    "word": "fair",
+    "meanings": [
+      { "pos": "형용사", "meaning": "타당한" },
+      { "pos": "형용사", "meaning": "공정한" },
+      { "pos": "형용사", "meaning": "공평한" },
+      { "pos": "부사", "meaning": "공정하게" }
+    ]
+  },
+  {
+    "word": "vast",
+    "meanings": [
+      { "pos": "형용사", "meaning": "방대한" },
+      { "pos": "형용사", "meaning": "어마어마한" }
+    ]
+  },
+  {
+    "word": "yield",
+    "meanings": [
+      { "pos": "동사", "meaning": "내다" },
+      { "pos": "동사", "meaning": "산출하다" },
+      { "pos": "동사", "meaning": "양도하다" },
+      { "pos": "명사", "meaning": "수확량" },
+      { "pos": "명사", "meaning": "총수익" }
+    ]
+  },
+  {
+    "word": "particle",
+    "meanings": [
+      { "pos": "명사", "meaning": "입자" },
+      { "pos": "명사", "meaning": "작은 조각" },
+      { "pos": "명사", "meaning": "소량" },
+      { "pos": "명사", "meaning": "미진" }
+    ]
+  },
+  {
+    "word": "boast",
+    "meanings": [
+      { "pos": "동사", "meaning": "뽐내다" },
+      { "pos": "동사", "meaning": "자랑하다" }
+    ]
+  },
+  {
+    "word": "indifferent",
+    "meanings": [
+      { "pos": "형용사", "meaning": "무관심한" },
+      { "pos": "형용사", "meaning": "냉담한" },
+      { "pos": "형용사", "meaning": "공평한" },
+      { "pos": "형용사", "meaning": "중립의" }
+    ]
+  },
+  {
+    "word": "temporary",
+    "meanings": [
+      { "pos": "형용사", "meaning": "일시적인" }
+    ]
+  },
+  {
+    "word": "breed",
+    "meanings": [
+      { "pos": "명사", "meaning": "혈통" },
+      { "pos": "명사", "meaning": "종" },
+      { "pos": "명사", "meaning": "유형" },
+      { "pos": "동사", "meaning": "사육하다" },
+      { "pos": "동사", "meaning": "번식하다" }
+    ]
+  },
+  {
+    "word": "accuse",
+    "meanings": [
+      { "pos": "동사", "meaning": "비난하다" },
+      { "pos": "동사", "meaning": "고발하다" }
+    ]
+  },
+  {
+    "word": "unfamiliar",
+    "meanings": [
+      { "pos": "형용사", "meaning": "익숙하지 않은" },
+      { "pos": "형용사", "meaning": "낯선" }
+    ]
+  },
+  {
+    "word": "contemplate",
+    "meanings": [
+      { "pos": "동사", "meaning": "생각하다" },
+      { "pos": "동사", "meaning": "고려하다" },
+      { "pos": "동사", "meaning": "응시하다" },
+      { "pos": "동사", "meaning": "찬찬히 보다" }
+    ]
+  },
+  {
+    "word": "excel",
+    "meanings": [
+      { "pos": "동사", "meaning": "능가하다" }
+    ]
+  },
+  {
+    "word": "suitable",
+    "meanings": [
+      { "pos": "형용사", "meaning": "적합한" }
+    ]
+  },
+  {
+    "word": "penetrate",
+    "meanings": [
+      { "pos": "동사", "meaning": "들어가다" },
+      { "pos": "동사", "meaning": "관통하다" }
+    ]
+  },
+  {
+    "word": "masterpiece",
+    "meanings": [
+      { "pos": "명사", "meaning": "걸작" },
+      { "pos": "명사", "meaning": "명작" }
+    ]
+  },
+  {
+    "word": "according to",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~에 따르면" }
+    ]
+  },
+  {
+    "word": "pick up",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~를 태우다" },
+      { "pos": "숙어", "meaning": "포착하다" },
+      { "pos": "숙어", "meaning": "집다" },
+      { "pos": "숙어", "meaning": "들어올리다" }
+    ]
+  },
+  {
+    "word": "take care of",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~를 돌보다" },
+      { "pos": "숙어", "meaning": "신경 쓰다" }
+    ]
+  },
+  {
+    "word": "call for",
+    "meanings": [
+      { "pos": "숙어", "meaning": "요구하다" },
+      { "pos": "숙어", "meaning": "~을 필요로 하다" }
+    ]
+  },
+  {
+    "word": "defy",
+    "meanings": [
+      { "pos": "동사", "meaning": "반항하다" },
+      { "pos": "동사", "meaning": "거역하다" }
+    ]
+  },
+  {
+    "word": "exquisite",
+    "meanings": [
+      { "pos": "형용사", "meaning": "매우 아름다운" },
+      { "pos": "형용사", "meaning": "정교한" }
+    ]
+  },
+  {
+    "word": "belittle",
+    "meanings": [
+      { "pos": "동사", "meaning": "얕보다" },
+      { "pos": "동사", "meaning": "과소평가하다" }
+    ]
+  },
+  {
+    "word": "counteract",
+    "meanings": [
+      { "pos": "동사", "meaning": "대응하다" }
+    ]
+  },
+  {
+    "word": "quarantine",
+    "meanings": [
+      { "pos": "명사", "meaning": "격리" }
+    ]
+  },
+  {
+    "word": "rupture",
+    "meanings": [
+      { "pos": "명사", "meaning": "파열" },
+      { "pos": "동사", "meaning": "파열되다" }
+    ]
+  },
+  {
+    "word": "savvy",
+    "meanings": [
+      { "pos": "형용사", "meaning": "요령 있는" }
+    ]
+  },
+  {
+    "word": "pale",
+    "meanings": [
+      { "pos": "형용사", "meaning": "창백한" },
+      { "pos": "형용사", "meaning": "옅은" }
+    ]
+  },
+  {
+    "word": "irregular",
+    "meanings": [
+      { "pos": "형용사", "meaning": "불규칙적인" }
+    ]
+  },
+  {
+    "word": "grief",
+    "meanings": [
+      { "pos": "명사", "meaning": "깊은 슬픔" },
+      { "pos": "명사", "meaning": "비탄" }
+    ]
+  },
+  {
+    "word": "rebellious",
+    "meanings": [
+      { "pos": "형용사", "meaning": "반항적인" },
+      { "pos": "형용사", "meaning": "반체제적인" }
+    ]
+  },
+  {
+    "word": "municipal",
+    "meanings": [
+      { "pos": "형용사", "meaning": "지방 자치의" },
+      { "pos": "형용사", "meaning": "시의" }
+    ]
+  },
+  {
+    "word": "certify",
+    "meanings": [
+      { "pos": "동사", "meaning": "증명하다" },
+      { "pos": "동사", "meaning": "보증하다" }
+    ]
+  },
+  {
+    "word": "meddle",
+    "meanings": [
+      { "pos": "동사", "meaning": "간섭하다" },
+      { "pos": "동사", "meaning": "참견하다" },
+      { "pos": "동사", "meaning": "건드리다" }
+    ]
+  },
+  {
+    "word": "barely",
+    "meanings": [
+      { "pos": "부사", "meaning": "거의 ~할 수 없이" },
+      { "pos": "부사", "meaning": "간신히" }
+    ]
+  },
+  {
+    "word": "friction",
+    "meanings": [
+      { "pos": "명사", "meaning": "마찰" },
+      { "pos": "명사", "meaning": "충돌" },
+      { "pos": "명사", "meaning": "불화" }
+    ]
+  },
+  {
+    "word": "principal",
+    "meanings": [
+      { "pos": "명사", "meaning": "교장" },
+      { "pos": "형용사", "meaning": "주요한" }
+    ]
+  },
+  {
+    "word": "tease",
+    "meanings": [
+      { "pos": "동사", "meaning": "놀리다" }
+    ]
+  },
+  {
+    "word": "gorgeous",
+    "meanings": [
+      { "pos": "형용사", "meaning": "멋진" },
+      { "pos": "형용사", "meaning": "우아한" }
+    ]
+  },
+  {
+    "word": "secular",
+    "meanings": [
+      { "pos": "형용사", "meaning": "세속적인" }
+    ]
+  },
+  {
+    "word": "fluid",
+    "meanings": [
+      { "pos": "명사", "meaning": "유체" },
+      { "pos": "형용사", "meaning": "유동적인" },
+      { "pos": "형용사", "meaning": "부드러운" }
+    ]
+  },
+  {
+    "word": "unbiased",
+    "meanings": [
+      { "pos": "형용사", "meaning": "편견 없는" },
+      { "pos": "형용사", "meaning": "편파적이지 않은" }
+    ]
+  },
+  {
+    "word": "envy",
+    "meanings": [
+      { "pos": "동사", "meaning": "부러워하다" },
+      { "pos": "명사", "meaning": "부러움" }
+    ]
+  },
+  {
+    "word": "midst",
+    "meanings": [
+      { "pos": "명사", "meaning": "중앙" },
+      { "pos": "명사", "meaning": "한가운데" }
+    ]
+  },
+  {
+    "word": "improvisation",
+    "meanings": [
+      { "pos": "명사", "meaning": "즉흥" }
+    ]
+  },
+  {
+    "word": "stern",
+    "meanings": [
+      { "pos": "형용사", "meaning": "엄중한" },
+      { "pos": "형용사", "meaning": "근엄한" }
+    ]
+  },
+  {
+    "word": "resolution",
+    "meanings": [
+      { "pos": "명사", "meaning": "해결" },
+      { "pos": "명사", "meaning": "결의안" }
+    ]
+  },
+  {
+    "word": "audit",
+    "meanings": [
+      { "pos": "명사", "meaning": "회계 감사" },
+      { "pos": "동사", "meaning": "회계를 감사하다" },
+      { "pos": "동사", "meaning": "청강하다" }
+    ]
+  },
+  {
+    "word": "mayor",
+    "meanings": [
+      { "pos": "명사", "meaning": "시장" },
+      { "pos": "명사", "meaning": "군수" }
+    ]
+  },
+  {
+    "word": "invitation",
+    "meanings": [
+      { "pos": "명사", "meaning": "초대" },
+      { "pos": "명사", "meaning": "초대장" }
+    ]
+  },
+  {
+    "word": "bring about",
+    "meanings": [
+      { "pos": "표현", "meaning": "일으키다" },
+      { "pos": "표현", "meaning": "야기하다" }
+    ]
+  },
+  {
+    "word": "take apart",
+    "meanings": [
+      { "pos": "표현", "meaning": "분해하다" }
+    ]
+  },
+  {
+    "word": "tell from",
+    "meanings": [
+      { "pos": "표현", "meaning": "구분하다" },
+      { "pos": "표현", "meaning": "알다" }
+    ]
+  },
+  {
+    "word": "build up",
+    "meanings": [
+      { "pos": "표현", "meaning": "확립하다" },
+      { "pos": "표현", "meaning": "개발하다" }
+    ]
+  },
+  {
+    "word": "take into account",
+    "meanings": [
+      { "pos": "표현", "meaning": "고려하다" }
+    ]
+  },
+  {
+    "word": "turn on",
+    "meanings": [
+      { "pos": "표현", "meaning": "켜다" }
+    ]
+  },
+  {
+    "word": "face",
+    "meanings": [
+      { "pos": "동사", "meaning": "직면하다" },
+      { "pos": "동사", "meaning": "마주하다" }
+    ]
+  },
+  {
+    "word": "shift",
+    "meanings": [
+      { "pos": "명사", "meaning": "전환" },
+      { "pos": "명사", "meaning": "이동" },
+      { "pos": "동사", "meaning": "옮기다" },
+      { "pos": "동사", "meaning": "자세를 바꾸다" }
+    ]
+  },
+  {
+    "word": "strategy",
+    "meanings": [
+      { "pos": "명사", "meaning": "전략" },
+      { "pos": "명사", "meaning": "계획" }
+    ]
+  },
+  {
+    "word": "remove",
+    "meanings": [
+      { "pos": "동사", "meaning": "제거하다" },
+      { "pos": "동사", "meaning": "치우다" }
+    ]
+  },
+  {
+    "word": "commitment",
+    "meanings": [
+      { "pos": "명사", "meaning": "헌신" },
+      { "pos": "명사", "meaning": "전념" },
+      { "pos": "명사", "meaning": "약속" }
+    ]
+  },
+  {
+    "word": "content",
+    "meanings": [
+      { "pos": "명사", "meaning": "목차" },
+      { "pos": "명사", "meaning": "내용물" },
+      { "pos": "형용사", "meaning": "만족하는" },
+      { "pos": "동사", "meaning": "만족시키다" }
+    ]
+  },
+  {
+    "word": "distinct",
+    "meanings": [
+      { "pos": "형용사", "meaning": "뚜렷한" },
+      { "pos": "형용사", "meaning": "별개의" },
+      { "pos": "형용사", "meaning": "전혀 다른" }
+    ]
+  },
+  {
+    "word": "inform",
+    "meanings": [
+      { "pos": "동사", "meaning": "알리다" },
+      { "pos": "동사", "meaning": "통지하다" }
+    ]
+  },
+  {
+    "word": "exert",
+    "meanings": [
+      { "pos": "동사", "meaning": "행사하다" },
+      { "pos": "동사", "meaning": "노력하다" },
+      { "pos": "동사", "meaning": "분투하다" }
+    ]
+  },
+  {
+    "word": "profound",
+    "meanings": [
+      { "pos": "형용사", "meaning": "심오한" },
+      { "pos": "형용사", "meaning": "엄청난" }
+    ]
+  },
+  {
+    "word": "conceal",
+    "meanings": [
+      { "pos": "동사", "meaning": "숨기다" },
+      { "pos": "동사", "meaning": "감추다" }
+    ]
+  },
+  {
+    "word": "superior",
+    "meanings": [
+      { "pos": "형용사", "meaning": "우월한" },
+      { "pos": "명사", "meaning": "상급자" }
+    ]
+  },
+  {
+    "word": "exclude",
+    "meanings": [
+      { "pos": "동사", "meaning": "배제하다" },
+      { "pos": "동사", "meaning": "제외하다" }
+    ]
+  },
+  {
+    "word": "ecological",
+    "meanings": [
+      { "pos": "형용사", "meaning": "생태계의" },
+      { "pos": "형용사", "meaning": "환경의" }
+    ]
+  },
+  {
+    "word": "conversely",
+    "meanings": [
+      { "pos": "부사", "meaning": "반대로" },
+      { "pos": "부사", "meaning": "역으로" }
+    ]
+  },
+  {
+    "word": "scarce",
+    "meanings": [
+      { "pos": "형용사", "meaning": "희귀한" },
+      { "pos": "형용사", "meaning": "부족한" }
+    ]
+  },
+  {
+    "word": "circulation",
+    "meanings": [
+      { "pos": "명사", "meaning": "순환" },
+      { "pos": "명사", "meaning": "유통" }
+    ]
+  },
+  {
+    "word": "respective",
+    "meanings": [
+      { "pos": "형용사", "meaning": "각각의" },
+      { "pos": "형용사", "meaning": "각자의" }
+    ]
+  },
+  {
+    "word": "negotiate",
+    "meanings": [
+      { "pos": "동사", "meaning": "협상하다" }
+    ]
+  },
+  {
+    "word": "insurance",
+    "meanings": [
+      { "pos": "명사", "meaning": "보험" }
+    ]
+  },
+  {
+    "word": "in addition",
+    "meanings": [
+      { "pos": "숙어", "meaning": "게다가" }
+    ]
+  },
+  {
+    "word": "be ready to",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~할 준비가 되다" }
+    ]
+  },
+  {
+    "word": "manage to",
+    "meanings": [
+      { "pos": "숙어", "meaning": "간신히 ~하다" }
+    ]
+  },
+  {
+    "word": "be sure to",
+    "meanings": [
+      { "pos": "숙어", "meaning": "반드시 ~하다" }
+    ]
+  },
+  {
+    "word": "irrigation",
+    "meanings": [
+      { "pos": "명사", "meaning": "관개" }
+    ]
+  },
+  {
+    "word": "jet lag",
+    "meanings": [
+      { "pos": "명사", "meaning": "시차" }
+    ]
+  },
+  {
+    "word": "paucity",
+    "meanings": [
+      { "pos": "명사", "meaning": "소량" },
+      { "pos": "명사", "meaning": "부족" }
+    ]
+  },
+  {
+    "word": "atom",
+    "meanings": [
+      { "pos": "명사", "meaning": "원자" }
+    ]
+  },
+  {
+    "word": "bizarre",
+    "meanings": [
+      { "pos": "형용사", "meaning": "기이한" }
+    ]
+  },
+  {
+    "word": "adaptable",
+    "meanings": [
+      { "pos": "형용사", "meaning": "적응할 수 있는" }
+    ]
+  },
+  {
+    "word": "smash",
+    "meanings": [
+      { "pos": "동사", "meaning": "박살 내다" }
+    ]
+  },
+  {
+    "word": "ruthless",
+    "meanings": [
+      { "pos": "형용사", "meaning": "무자비한" }
+    ]
+  },
+  {
+    "word": "reproach",
+    "meanings": [
+      { "pos": "동사", "meaning": "비난하다" },
+      { "pos": "명사", "meaning": "비난" }
+    ]
+  },
+  {
+    "word": "sever",
+    "meanings": [
+      { "pos": "동사", "meaning": "자르다" },
+      { "pos": "동사", "meaning": "절단하다" }
+    ]
+  },
+  {
+    "word": "unravel",
+    "meanings": [
+      { "pos": "동사", "meaning": "흐트러지기 시작하다" }
+    ]
+  },
+  {
+    "word": "plagiarism",
+    "meanings": [
+      { "pos": "명사", "meaning": "표절" }
+    ]
+  },
+  {
+    "word": "brevity",
+    "meanings": [
+      { "pos": "명사", "meaning": "간결성" }
+    ]
+  },
+  {
+    "word": "resolute",
+    "meanings": [
+      { "pos": "형용사", "meaning": "단호한" },
+      { "pos": "형용사", "meaning": "확고한" }
+    ]
+  },
+  {
+    "word": "potent",
+    "meanings": [
+      { "pos": "형용사", "meaning": "강력한" }
+    ]
+  },
+  {
+    "word": "prose",
+    "meanings": [
+      { "pos": "명사", "meaning": "산문" }
+    ]
+  },
+  {
+    "word": "indigenous",
+    "meanings": [
+      { "pos": "형용사", "meaning": "토착의" },
+      { "pos": "형용사", "meaning": "고유의" }
+    ]
+  },
+  {
+    "word": "immoral",
+    "meanings": [
+      { "pos": "형용사", "meaning": "부도덕한" }
+    ]
+  },
+  {
+    "word": "entrepreneur",
+    "meanings": [
+      { "pos": "명사", "meaning": "기업가" }
+    ]
+  },
+  {
+    "word": "redundant",
+    "meanings": [
+      { "pos": "형용사", "meaning": "불필요한" }
+    ]
+  },
+  {
+    "word": "subconscious",
+    "meanings": [
+      { "pos": "형용사", "meaning": "잠재적인" },
+      { "pos": "명사", "meaning": "잠재의식" }
+    ]
+  },
+  {
+    "word": "torture",
+    "meanings": [
+      { "pos": "명사", "meaning": "고문" },
+      { "pos": "동사", "meaning": "고문하다" }
+    ]
+  },
+  {
+    "word": "invincible",
+    "meanings": [
+      { "pos": "형용사", "meaning": "무적의" }
+    ]
+  },
+  {
+    "word": "extrovert",
+    "meanings": [
+      { "pos": "형용사", "meaning": "외향적인" },
+      { "pos": "명사", "meaning": "외향적인 사람" }
+    ]
+  },
+  {
+    "word": "fabricate",
+    "meanings": [
+      { "pos": "동사", "meaning": "조작하다" },
+      { "pos": "동사", "meaning": "제작하다" }
+    ]
+  },
+  {
+    "word": "marvelous",
+    "meanings": [
+      { "pos": "형용사", "meaning": "놀라운" }
+    ]
+  },
+  {
+    "word": "neat",
+    "meanings": [
+      { "pos": "형용사", "meaning": "정돈된" },
+      { "pos": "형용사", "meaning": "단정한" }
+    ]
+  },
+  {
+    "word": "surge",
+    "meanings": [
+      { "pos": "명사", "meaning": "급증" },
+      { "pos": "명사", "meaning": "파도" },
+      { "pos": "동사", "meaning": "쇄도하다" }
+    ]
+  },
+  {
+    "word": "appoint",
+    "meanings": [
+      { "pos": "동사", "meaning": "임명하다" }
+    ]
+  },
+  {
+    "word": "beg",
+    "meanings": [
+      { "pos": "동사", "meaning": "간청하다" }
+    ]
+  },
+  {
+    "word": "privacy",
+    "meanings": [
+      { "pos": "명사", "meaning": "사생활" }
+    ]
+  },
+  {
+    "word": "commit suicide",
+    "meanings": [
+      { "pos": "표현", "meaning": "자살하다" }
+    ]
+  },
+  {
+    "word": "keep pace with",
+    "meanings": [
+      { "pos": "표현", "meaning": "~와 보조를 맞추다" }
+    ]
+  },
+  {
+    "word": "by far",
+    "meanings": [
+      { "pos": "표현", "meaning": "훨씬" }
+    ]
+  },
+  {
+    "word": "take turns",
+    "meanings": [
+      { "pos": "표현", "meaning": "교대로 하다" }
+    ]
+  },
+  {
+    "word": "set back",
+    "meanings": [
+      { "pos": "표현", "meaning": "저지하다" },
+      { "pos": "표현", "meaning": "지연시키다" }
+    ]
+  },
+  {
+    "word": "live",
+    "meanings": [
+      { "pos": "동사", "meaning": "살다" },
+      { "pos": "동사", "meaning": "생존하다" },
+      { "pos": "형용사", "meaning": "살아 있는" }
+    ]
+  },
+  {
+    "word": "context",
+    "meanings": [
+      { "pos": "명사", "meaning": "맥락" },
+      { "pos": "명사", "meaning": "배경" }
+    ]
+  },
+  {
+    "word": "estimate",
+    "meanings": [
+      { "pos": "명사", "meaning": "추정치" },
+      { "pos": "동사", "meaning": "추정하다" },
+      { "pos": "동사", "meaning": "평가하다" }
+    ]
+  },
+  {
+    "word": "independent",
+    "meanings": [
+      { "pos": "형용사", "meaning": "독립적인" }
+    ]
+  },
+  {
+    "word": "appreciate",
+    "meanings": [
+      { "pos": "동사", "meaning": "평가하다" },
+      { "pos": "동사", "meaning": "감상하다" },
+      { "pos": "동사", "meaning": "고마워하다" }
+    ]
+  },
+  {
+    "word": "attribute",
+    "meanings": [
+      { "pos": "동사", "meaning": "~의 탓으로 돌리다" },
+      { "pos": "명사", "meaning": "특성" }
+    ]
+  },
+  {
+    "word": "complain",
+    "meanings": [
+      { "pos": "동사", "meaning": "불평하다" }
+    ]
+  },
+  {
+    "word": "symptom",
+    "meanings": [
+      { "pos": "명사", "meaning": "증상" },
+      { "pos": "명사", "meaning": "징후" }
+    ]
+  },
+  {
+    "word": "abuse",
+    "meanings": [
+      { "pos": "동사", "meaning": "남용하다" },
+      { "pos": "동사", "meaning": "학대하다" },
+      { "pos": "명사", "meaning": "남용" }
+    ]
+  },
+  {
+    "word": "beneficial",
+    "meanings": [
+      { "pos": "형용사", "meaning": "유익한" }
+    ]
+  },
+  {
+    "word": "entitle",
+    "meanings": [
+      { "pos": "동사", "meaning": "자격을 주다" }
+    ]
+  },
+  {
+    "word": "density",
+    "meanings": [
+      { "pos": "명사", "meaning": "밀도" }
+    ]
+  },
+  {
+    "word": "undertake",
+    "meanings": [
+      { "pos": "동사", "meaning": "떠맡다" },
+      { "pos": "동사", "meaning": "착수하다" }
+    ]
+  },
+  {
+    "word": "endorse",
+    "meanings": [
+      { "pos": "동사", "meaning": "지지하다" },
+      { "pos": "동사", "meaning": "보증하다" }
+    ]
+  },
+  {
+    "word": "decay",
+    "meanings": [
+      { "pos": "동사", "meaning": "썩다" },
+      { "pos": "명사", "meaning": "부패" }
+    ]
+  },
+  {
+    "word": "textile",
+    "meanings": [
+      { "pos": "명사", "meaning": "섬유" }
+    ]
+  },
+  {
+    "word": "convey",
+    "meanings": [
+      { "pos": "동사", "meaning": "전달하다" }
+    ]
+  },
+  {
+    "word": "sensory",
+    "meanings": [
+      { "pos": "형용사", "meaning": "감각의" }
+    ]
+  },
+  {
+    "word": "suspicious",
+    "meanings": [
+      { "pos": "형용사", "meaning": "의심스러운" }
+    ]
+  },
+  {
+    "word": "underline",
+    "meanings": [
+      { "pos": "동사", "meaning": "강조하다" },
+      { "pos": "명사", "meaning": "밑줄" }
+    ]
+  },
+  {
+    "word": "be likely to",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~할 가능성이 있다" }
+    ]
+  },
+  {
+    "word": "on the other hand",
+    "meanings": [
+      { "pos": "숙어", "meaning": "반면에" }
+    ]
+  },
+  {
+    "word": "catch up",
+    "meanings": [
+      { "pos": "숙어", "meaning": "따라잡다" }
+    ]
+  },
+  {
+    "word": "compensate for",
+    "meanings": [
+      { "pos": "숙어", "meaning": "보상하다" }
+    ]
+  },
+  {
+    "word": "circumscribe",
+    "meanings": [
+      { "pos": "동사", "meaning": "제한하다" }
+    ]
+  },
+  {
+    "word": "equilibrium",
+    "meanings": [
+      { "pos": "명사", "meaning": "평형" }
+    ]
+  },
+  {
+    "word": "perjury",
+    "meanings": [
+      { "pos": "명사", "meaning": "위증" }
+    ]
+  },
+  {
+    "word": "rampant",
+    "meanings": [
+      { "pos": "형용사", "meaning": "걷잡을 수 없는" }
+    ]
+  },
+  {
+    "word": "brink",
+    "meanings": [
+      { "pos": "명사", "meaning": "끝" },
+      { "pos": "명사", "meaning": "직전" }
+    ]
+  },
+  {
+    "word": "blunt",
+    "meanings": [
+      { "pos": "형용사", "meaning": "무딘" }
+    ]
+  },
+  {
+    "word": "peasant",
+    "meanings": [
+      { "pos": "명사", "meaning": "소장농" }
+    ]
+  },
+  {
+    "word": "courtesy",
+    "meanings": [
+      { "pos": "명사", "meaning": "공손함" }
+    ]
+  },
+  {
+    "word": "smuggle",
+    "meanings": [
+      { "pos": "동사", "meaning": "밀수하다" }
+    ]
+  },
+  {
+    "word": "indiscriminate",
+    "meanings": [
+      { "pos": "형용사", "meaning": "무분별한" }
+    ]
+  },
+  {
+    "word": "sober",
+    "meanings": [
+      { "pos": "형용사", "meaning": "제정신의" },
+      { "pos": "형용사", "meaning": "냉철한" }
+    ]
+  },
+  {
+    "word": "tedious",
+    "meanings": [
+      { "pos": "형용사", "meaning": "지루한" }
+    ]
+  },
+  {
+    "word": "preeminent",
+    "meanings": [
+      { "pos": "형용사", "meaning": "탁월한" }
+    ]
+  },
+  {
+    "word": "exhaust",
+    "meanings": [
+      { "pos": "동사", "meaning": "기진맥진하게 하다" }
+    ]
+  },
+  {
+    "word": "increment",
+    "meanings": [
+      { "pos": "명사", "meaning": "증가량" }
+    ]
+  },
+  {
+    "word": "tame",
+    "meanings": [
+      { "pos": "동사", "meaning": "길들이다" },
+      { "pos": "형용사", "meaning": "길들여진" }
+    ]
+  },
+  {
+    "word": "metabolic",
+    "meanings": [
+      { "pos": "형용사", "meaning": "신진대사의" }
+    ]
+  },
+  {
+    "word": "spur",
+    "meanings": [
+      { "pos": "동사", "meaning": "자극하다" },
+      { "pos": "명사", "meaning": "자극" }
+    ]
+  },
+  {
+    "word": "riot",
+    "meanings": [
+      { "pos": "명사", "meaning": "폭동" },
+      { "pos": "동사", "meaning": "폭동을 일으키다" }
+    ]
+  },
+  {
+    "word": "persevere",
+    "meanings": [
+      { "pos": "동사", "meaning": "인내하다" }
+    ]
+  },
+  {
+    "word": "mediate",
+    "meanings": [
+      { "pos": "동사", "meaning": "중재하다" }
+    ]
+  },
+  {
+    "word": "refurbish",
+    "meanings": [
+      { "pos": "동사", "meaning": "재단장하다" }
+    ]
+  },
+  {
+    "word": "rotate",
+    "meanings": [
+      { "pos": "동사", "meaning": "회전하다" }
+    ]
+  },
+  {
+    "word": "explicit",
+    "meanings": [
+      { "pos": "형용사", "meaning": "명쾌한" },
+      { "pos": "형용사", "meaning": "분명한" }
+    ]
+  },
+  {
+    "word": "ingest",
+    "meanings": [
+      { "pos": "동사", "meaning": "섭취하다" }
+    ]
+  },
+  {
+    "word": "offense",
+    "meanings": [
+      { "pos": "명사", "meaning": "위반" },
+      { "pos": "명사", "meaning": "범행" }
+    ]
+  },
+  {
+    "word": "narrow",
+    "meanings": [
+      { "pos": "형용사", "meaning": "좁은" }
+    ]
+  },
+  {
+    "word": "blossom",
+    "meanings": [
+      { "pos": "동사", "meaning": "꽃이 피다" },
+      { "pos": "명사", "meaning": "꽃" }
+    ]
+  },
+  {
+    "word": "shelf",
+    "meanings": [
+      { "pos": "명사", "meaning": "선반" }
+    ]
+  },
+  {
+    "word": "sacrifice",
+    "meanings": [
+      { "pos": "명사", "meaning": "희생" },
+      { "pos": "동사", "meaning": "희생하다" }
+    ]
+  },
+  {
+    "word": "somewhat",
+    "meanings": [
+      { "pos": "부사", "meaning": "어느 정도" }
+    ]
+  },
+  {
+    "word": "pick on",
+    "meanings": [
+      { "pos": "표현", "meaning": "비난하다" }
+    ]
+  },
+  {
+    "word": "in accordance with",
+    "meanings": [
+      { "pos": "표현", "meaning": "~에 따라서" }
+    ]
+  },
+  {
+    "word": "burst into",
+    "meanings": [
+      { "pos": "표현", "meaning": "갑자기 ~하다" }
+    ]
+  },
+  {
+    "word": "in the long run",
+    "meanings": [
+      { "pos": "표현", "meaning": "장기적으로" }
+    ]
+  },
+  {
+    "word": "be acquainted with",
+    "meanings": [
+      { "pos": "표현", "meaning": "친분이 있다" }
+    ]
+  },
+  {
+    "word": "material",
+    "meanings": [
+      { "pos": "명사", "meaning": "물질" },
+      { "pos": "형용사", "meaning": "물질적인" }
+    ]
+  },
+  {
+    "word": "union",
+    "meanings": [
+      { "pos": "명사", "meaning": "연합" }
+    ]
+  },
+  {
+    "word": "ban",
+    "meanings": [
+      { "pos": "동사", "meaning": "금지하다" },
+      { "pos": "명사", "meaning": "규제" }
+    ]
+  },
+  {
+    "word": "executive",
+    "meanings": [
+      { "pos": "명사", "meaning": "임원" },
+      { "pos": "형용사", "meaning": "행정상의" }
+    ]
+  },
+  {
+    "word": "fossil",
+    "meanings": [
+      { "pos": "명사", "meaning": "화석" }
+    ]
+  },
+  {
+    "word": "shelter",
+    "meanings": [
+      { "pos": "명사", "meaning": "대피처" },
+      { "pos": "동사", "meaning": "보호하다" }
+    ]
+  },
+  {
+    "word": "fix",
+    "meanings": [
+      { "pos": "동사", "meaning": "고정시키다" },
+      { "pos": "동사", "meaning": "정하다" }
+    ]
+  },
+  {
+    "word": "verbal",
+    "meanings": [
+      { "pos": "형용사", "meaning": "언어의" },
+      { "pos": "형용사", "meaning": "구두의" }
+    ]
+  },
+  {
+    "word": "vulnerable",
+    "meanings": [
+      { "pos": "형용사", "meaning": "취약한" }
+    ]
+  },
+  {
+    "word": "cite",
+    "meanings": [
+      { "pos": "동사", "meaning": "언급하다" },
+      { "pos": "동사", "meaning": "인용하다" }
+    ]
+  },
+  {
+    "word": "transmit",
+    "meanings": [
+      { "pos": "동사", "meaning": "전송하다" },
+      { "pos": "동사", "meaning": "전염시키다" }
+    ]
+  },
+  {
+    "word": "refund",
+    "meanings": [
+      { "pos": "동사", "meaning": "환불하다" },
+      { "pos": "명사", "meaning": "환불" }
+    ]
+  },
+  {
+    "word": "isolate",
+    "meanings": [
+      { "pos": "동사", "meaning": "고립시키다" }
+    ]
+  },
+  {
+    "word": "district",
+    "meanings": [
+      { "pos": "명사", "meaning": "구역" }
+    ]
+  },
+  {
+    "word": "equality",
+    "meanings": [
+      { "pos": "명사", "meaning": "평등" }
+    ]
+  },
+  {
+    "word": "eradicate",
+    "meanings": [
+      { "pos": "동사", "meaning": "근절하다" }
+    ]
+  },
+  {
+    "word": "fade",
+    "meanings": [
+      { "pos": "동사", "meaning": "사라지다" }
+    ]
+  },
+  {
+    "word": "crude",
+    "meanings": [
+      { "pos": "형용사", "meaning": "허술한" },
+      { "pos": "명사", "meaning": "원유" }
+    ]
+  },
+  {
+    "word": "apprehend",
+    "meanings": [
+      { "pos": "동사", "meaning": "이해하다" },
+      { "pos": "동사", "meaning": "체포하다" }
+    ]
+  },
+  {
+    "word": "speculate",
+    "meanings": [
+      { "pos": "동사", "meaning": "추측하다" }
+    ]
+  },
+  {
+    "word": "lead to",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~으로 이어지다" }
+    ]
+  },
+  {
+    "word": "be responsible for",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~에 책임이 있다" }
+    ]
+  },
+  {
+    "word": "be forced to",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~할 수밖에 없다" }
+    ]
+  },
+  {
+    "word": "a handful of",
+    "meanings": [
+      { "pos": "숙어", "meaning": "소수의" }
+    ]
+  },
+  {
+    "word": "clarity",
+    "meanings": [
+      { "pos": "명사", "meaning": "명료성" }
+    ]
+  },
+  {
+    "word": "eternal",
+    "meanings": [
+      { "pos": "형용사", "meaning": "영원한" }
+    ]
+  },
+  {
+    "word": "purify",
+    "meanings": [
+      { "pos": "동사", "meaning": "정화하다" }
+    ]
+  },
+  {
+    "word": "bondage",
+    "meanings": [
+      { "pos": "명사", "meaning": "구속" }
+    ]
+  },
+  {
+    "word": "vibe",
+    "meanings": [
+      { "pos": "명사", "meaning": "분위기" }
+    ]
+  },
+  {
+    "word": "proximity",
+    "meanings": [
+      { "pos": "명사", "meaning": "근접" }
+    ]
+  },
+  {
+    "word": "penniless",
+    "meanings": [
+      { "pos": "형용사", "meaning": "몹시 가난한" }
+    ]
+  },
+  {
+    "word": "sympathetic",
+    "meanings": [
+      { "pos": "형용사", "meaning": "동정 어린" }
+    ]
+  },
+  {
+    "word": "liberate",
+    "meanings": [
+      { "pos": "동사", "meaning": "해방시키다" }
+    ]
+  },
+  {
+    "word": "regime",
+    "meanings": [
+      { "pos": "명사", "meaning": "정권" }
+    ]
+  },
+  {
+    "word": "eminent",
+    "meanings": [
+      { "pos": "형용사", "meaning": "저명한" }
+    ]
+  },
+  {
+    "word": "congratulate",
+    "meanings": [
+      { "pos": "동사", "meaning": "축하하다" }
+    ]
+  },
+  {
+    "word": "regional",
+    "meanings": [
+      { "pos": "형용사", "meaning": "지방의" }
+    ]
+  },
+  {
+    "word": "offspring",
+    "meanings": [
+      { "pos": "명사", "meaning": "자손" }
+    ]
+  },
+  {
+    "word": "differentiate",
+    "meanings": [
+      { "pos": "동사", "meaning": "구별하다" }
+    ]
+  },
+  {
+    "word": "supervision",
+    "meanings": [
+      { "pos": "명사", "meaning": "관리" }
+    ]
+  },
+  {
+    "word": "abhor",
+    "meanings": [
+      { "pos": "동사", "meaning": "혐오하다" }
+    ]
+  },
+  {
+    "word": "insulate",
+    "meanings": [
+      { "pos": "동사", "meaning": "절연하다" }
+    ]
+  },
+  {
+    "word": "amateur",
+    "meanings": [
+      { "pos": "명사", "meaning": "비전문가" }
+    ]
+  },
+  {
+    "word": "terminate",
+    "meanings": [
+      { "pos": "동사", "meaning": "종료하다" }
+    ]
+  },
+  {
+    "word": "decompose",
+    "meanings": [
+      { "pos": "동사", "meaning": "부패하다" }
+    ]
+  },
+  {
+    "word": "latent",
+    "meanings": [
+      { "pos": "형용사", "meaning": "잠재된" }
+    ]
+  },
+  {
+    "word": "utter",
+    "meanings": [
+      { "pos": "동사", "meaning": "말하다" },
+      { "pos": "형용사", "meaning": "완전한" }
+    ]
+  },
+  {
+    "word": "criticism",
+    "meanings": [
+      { "pos": "명사", "meaning": "비판" }
+    ]
+  },
+  {
+    "word": "valid",
+    "meanings": [
+      { "pos": "형용사", "meaning": "유효한" }
+    ]
+  },
+  {
+    "word": "blunder",
+    "meanings": [
+      { "pos": "명사", "meaning": "실수" },
+      { "pos": "동사", "meaning": "실수하다" }
+    ]
+  },
+  {
+    "word": "extinguish",
+    "meanings": [
+      { "pos": "동사", "meaning": "끄다" }
+    ]
+  },
+  {
+    "word": "colorful",
+    "meanings": [
+      { "pos": "형용사", "meaning": "다채로운" }
+    ]
+  },
+  {
+    "word": "aisle",
+    "meanings": [
+      { "pos": "명사", "meaning": "통로" }
+    ]
+  },
+  {
+    "word": "standpoint",
+    "meanings": [
+      { "pos": "명사", "meaning": "관점" }
+    ]
+  },
+  {
+    "word": "in return",
+    "meanings": [
+      { "pos": "표현", "meaning": "답례로" }
+    ]
+  },
+  {
+    "word": "on the rise",
+    "meanings": [
+      { "pos": "표현", "meaning": "상승 중인" }
+    ]
+  },
+  {
+    "word": "caught up in",
+    "meanings": [
+      { "pos": "표현", "meaning": "~에 휩쓸린" }
+    ]
+  },
+  {
+    "word": "show off",
+    "meanings": [
+      { "pos": "표현", "meaning": "과시하다" }
+    ]
+  },
+  {
+    "word": "take part in",
+    "meanings": [
+      { "pos": "표현", "meaning": "~에 참여하다" }
+    ]
+  },
+  {
+    "word": "put on",
+    "meanings": [
+      { "pos": "표현", "meaning": "입다" },
+      { "pos": "표현", "meaning": "상연하다" }
+    ]
+  },
+  {
+    "word": "identify",
+    "meanings": [
+      { "pos": "동사", "meaning": "확인하다" }
+    ]
+  },
+  {
+    "word": "award",
+    "meanings": [
+      { "pos": "명사", "meaning": "상" },
+      { "pos": "동사", "meaning": "수여하다" }
+    ]
+  },
+  {
+    "word": "consequently",
+    "meanings": [
+      { "pos": "부사", "meaning": "결과적으로" }
+    ]
+  },
+  {
+    "word": "closely",
+    "meanings": [
+      { "pos": "부사", "meaning": "밀접하게" }
+    ]
+  },
+  {
+    "word": "pursue",
+    "meanings": [
+      { "pos": "동사", "meaning": "추구하다" },
+      { "pos": "동사", "meaning": "추적하다" }
+    ]
+  },
+  {
+    "word": "extend",
+    "meanings": [
+      { "pos": "동사", "meaning": "연장하다" },
+      { "pos": "동사", "meaning": "확장하다" }
+    ]
+  },
+  {
+    "word": "overcome",
+    "meanings": [
+      { "pos": "동사", "meaning": "극복하다" }
+    ]
+  },
+  {
+    "word": "actual",
+    "meanings": [
+      { "pos": "형용사", "meaning": "실제의" }
+    ]
+  },
+  {
+    "word": "trait",
+    "meanings": [
+      { "pos": "명사", "meaning": "특성" }
+    ]
+  },
+  {
+    "word": "tremendous",
+    "meanings": [
+      { "pos": "형용사", "meaning": "엄청난" }
+    ]
+  },
+  {
+    "word": "reinforce",
+    "meanings": [
+      { "pos": "동사", "meaning": "강화하다" }
+    ]
+  },
+  {
+    "word": "colleague",
+    "meanings": [
+      { "pos": "명사", "meaning": "동료" }
+    ]
+  },
+  {
+    "word": "controversy",
+    "meanings": [
+      { "pos": "명사", "meaning": "논란" }
+    ]
+  },
+  {
+    "word": "extinction",
+    "meanings": [
+      { "pos": "명사", "meaning": "멸종" }
+    ]
+  },
+  {
+    "word": "depict",
+    "meanings": [
+      { "pos": "동사", "meaning": "묘사하다" }
+    ]
+  },
+  {
+    "word": "clarify",
+    "meanings": [
+      { "pos": "동사", "meaning": "명확하게 하다" }
+    ]
+  },
+  {
+    "word": "outbreak",
+    "meanings": [
+      { "pos": "명사", "meaning": "발발" }
+    ]
+  },
+  {
+    "word": "extract",
+    "meanings": [
+      { "pos": "동사", "meaning": "추출하다" },
+      { "pos": "명사", "meaning": "추출물" }
+    ]
+  },
+  {
+    "word": "inspiration",
+    "meanings": [
+      { "pos": "명사", "meaning": "영감" }
+    ]
+  },
+  {
+    "word": "resume",
+    "meanings": [
+      { "pos": "동사", "meaning": "재개하다" },
+      { "pos": "명사", "meaning": "이력서" }
+    ]
+  },
+  {
+    "word": "by the time",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~할 즈음에" }
+    ]
+  },
+  {
+    "word": "lay off",
+    "meanings": [
+      { "pos": "숙어", "meaning": "해고하다" }
+    ]
+  },
+  {
+    "word": "be accompanied by",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~을 수반하다" }
+    ]
+  },
+  {
+    "word": "correspond to",
+    "meanings": [
+      { "pos": "숙어", "meaning": "~과 일치하다" }
+    ]
+  },
+  {
+    "word": "supremacy",
+    "meanings": [
+      { "pos": "명사", "meaning": "패권" }
+    ]
+  },
+  {
+    "word": "sorrow",
+    "meanings": [
+      { "pos": "명사", "meaning": "슬픔" }
+    ]
+  },
+  {
+    "word": "apathy",
+    "meanings": [
+      { "pos": "명사", "meaning": "무관심" }
+    ]
+  },
+  {
+    "word": "deceptive",
+    "meanings": [
+      { "pos": "형용사", "meaning": "속이는" }
+    ]
+  },
+  {
+    "word": "reminiscent",
+    "meanings": [
+      { "pos": "형용사", "meaning": "연상시키는" }
+    ]
+  },
+  {
+    "word": "deform",
+    "meanings": [
+      { "pos": "동사", "meaning": "변형시키다" }
+    ]
+  },
+  {
+    "word": "serene",
+    "meanings": [
+      { "pos": "형용사", "meaning": "고요한" }
+    ]
+  },
+  {
+    "word": "suffocate",
+    "meanings": [
+      { "pos": "동사", "meaning": "질식시키다" }
+    ]
+  },
+  {
+    "word": "abridge",
+    "meanings": [
+      { "pos": "동사", "meaning": "단축하다" }
+    ]
+  },
+  {
+    "word": "demise",
+    "meanings": [
+      { "pos": "명사", "meaning": "종말" }
+    ]
+  },
+  {
+    "word": "liquidate",
+    "meanings": [
+      { "pos": "동사", "meaning": "청산하다" }
+    ]
+  },
+  {
+    "word": "prophecy",
+    "meanings": [
+      { "pos": "명사", "meaning": "예언" }
+    ]
+  },
+  {
+    "word": "juvenile",
+    "meanings": [
+      { "pos": "형용사", "meaning": "청소년의" }
+    ]
+  },
+  {
+    "word": "landlord",
+    "meanings": [
+      { "pos": "명사", "meaning": "집주인" }
+    ]
+  },
+  {
+    "word": "revoke",
+    "meanings": [
+      { "pos": "동사", "meaning": "취소하다" }
+    ]
+  },
+  {
+    "word": "mimic",
+    "meanings": [
+      { "pos": "동사", "meaning": "흉내 내다" }
+    ]
+  },
+  {
+    "word": "feasible",
+    "meanings": [
+      { "pos": "형용사", "meaning": "실현 가능한" }
+    ]
+  },
+  {
+    "word": "intriguing",
+    "meanings": [
+      { "pos": "형용사", "meaning": "흥미로운" }
+    ]
+  },
+  {
+    "word": "premature",
+    "meanings": [
+      { "pos": "형용사", "meaning": "조기의" }
+    ]
+  },
+  {
+    "word": "coincide",
+    "meanings": [
+      { "pos": "동사", "meaning": "동시에 일어나다" }
+    ]
+  },
+  {
+    "word": "dignity",
+    "meanings": [
+      { "pos": "명사", "meaning": "존엄성" }
+    ]
+  },
+  {
+    "word": "redeem",
+    "meanings": [
+      { "pos": "동사", "meaning": "상환하다" }
+    ]
+  },
+  {
+    "word": "activate",
+    "meanings": [
+      { "pos": "동사", "meaning": "활성화시키다" }
+    ]
+  },
+  {
+    "word": "certificate",
+    "meanings": [
+      { "pos": "명사", "meaning": "자격증" },
+      { "pos": "동사", "meaning": "자격증을 주다" }
+    ]
+  },
+  {
+    "word": "accurate",
+    "meanings": [
+      { "pos": "형용사", "meaning": "정확한" }
+    ]
+  },
+  {
+    "word": "noxious",
+    "meanings": [
+      { "pos": "형용사", "meaning": "유독한" }
+    ]
+  },
+  {
+    "word": "attain",
+    "meanings": [
+      { "pos": "동사", "meaning": "이루다" }
+    ]
+  },
+  {
+    "word": "metaphor",
+    "meanings": [
+      { "pos": "명사", "meaning": "비유" }
+    ]
+  },
+  {
+    "word": "susceptible",
+    "meanings": [
+      { "pos": "형용사", "meaning": "민감한" }
+    ]
+  },
+  {
+    "word": "portfolio",
+    "meanings": [
+      { "pos": "명사", "meaning": "포트폴리오" }
+    ]
+  },
+  {
+    "word": "hammer out",
+    "meanings": [
+      { "pos": "표현", "meaning": "타결하다" }
+    ]
+  },
+  {
+    "word": "start over",
+    "meanings": [
+      { "pos": "표현", "meaning": "다시 시작하다" }
+    ]
+  },
+  {
+    "word": "from now on",
+    "meanings": [
+      { "pos": "표현", "meaning": "이제부터" }
+    ]
+  },
+  {
+    "word": "in conjunction with",
+    "meanings": [
+      { "pos": "표현", "meaning": "~과 함께" }
+    ]
+  },
+  {
+    "word": "bring up",
+    "meanings": [
+      { "pos": "표현", "meaning": "꺼내다" },
+      { "pos": "표현", "meaning": "기르다" }
+    ]
+  },
+  {
+    "word": "sign up for",
+    "meanings": [
+      { "pos": "표현", "meaning": "신청하다" }
+    ]
+  }
+]
