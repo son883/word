@@ -8,92 +8,80 @@
 <style>
   body { font-family: 'Malgun Gothic', sans-serif; padding: 20px; line-height: 1.6; background-color: #f9f9f9; }
   .pos { color: #0070c0; font-weight: bold; margin-right: 4px; }
-  
-  /* 선택지 버튼 스타일 및 간격 */
   .choice-btn { 
-    margin-bottom: 12px; /* 버튼 사이 간격 */
-    padding: 15px 20px; 
-    width: 100%; 
-    text-align: left; 
-    cursor: pointer; 
-    background-color: #fff; 
-    border: 1px solid #ddd; 
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.2s;
+    margin-bottom: 12px; padding: 15px 20px; width: 100%; text-align: left; 
+    cursor: pointer; background-color: #fff; border: 1px solid #ddd; border-radius: 8px;
+    font-size: 1rem; transition: all 0.2s;
   }
   .choice-btn:hover { background-color: #f0f7ff; border-color: #0070c0; transform: translateY(-1px); }
-  
-  /* 문제 박스 및 단어-선택지 간격 */
   .quiz-box { 
-    border: 2px solid #0070c0; 
-    padding: 30px; 
-    border-radius: 12px; 
-    background-color: #fff; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
-    margin-bottom: 30px;
+    border: 2px solid #0070c0; padding: 30px; border-radius: 12px; 
+    background-color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 30px;
   }
   #quizWord { 
-    font-size: 2rem; /* 단어 크기 확대 */
-    font-weight: bold; 
-    display: block;
-    margin-bottom: 40px; /* 단어와 선택지 사이의 넓은 간격 */
-    color: #2c3e50;
-    text-align: center;
+    font-size: 2rem; font-weight: bold; display: block;
+    margin-bottom: 40px; color: #2c3e50; text-align: center;
   }
-  
   .note-container { border: 1px solid #ccc; padding: 15px; margin-top: 10px; max-height: 400px; overflow-y: auto; background-color: #fff; border-radius: 8px; }
   button.count-btn { padding: 10px 18px; margin-right: 8px; cursor: pointer; border-radius: 6px; border: 1px solid #0070c0; background: #fff; color: #0070c0; font-weight: bold; }
   button.count-btn:hover { background: #0070c0; color: #fff; }
-  #progress { font-size: 1.1rem; margin-bottom: 15px; color: #666; }
+  #progress { font-size: 1.1rem; margin-bottom: 15px; color: #333; font-weight: bold; }
 </style>
 
 <script>
 let WORDS = [];
 let remainingWords = [];
 let quizList = [];
-let currentIndex = 0;
-let maxCount = 0;
+let currentIndex = 0;   // 이번 판의 인덱스
+let totalSolved = 0;    // 지금까지 누적으로 푼 문제 수
+let totalTarget = 0;    // 이번 세션에서 목표로 잡은 총 문제 수
 
-/* 품사 통합 및 구분자(|) 적용 로직 */
 function getCombinedMeanings(meanings) {
   const group = {};
   meanings.forEach(m => {
     if (!group[m.pos]) group[m.pos] = [];
-    if (!group[m.pos].includes(m.meaning)) {
-        group[m.pos].push(m.meaning);
-    }
+    if (!group[m.pos].includes(m.meaning)) group[m.pos].push(m.meaning);
   });
-  
-  // 각 품사 그룹을 생성하고 그 사이를 " | "로 연결
-  return Object.keys(group).map(pos => {
-    return `<span class="pos">${pos}</span> ${group[pos].join(", ")}`;
-  }).join(" | ");
+  return Object.keys(group).map(pos => `<span class="pos">${pos}</span> ${group[pos].join(", ")}`).join(" | ");
 }
 
 function startQuiz(count) {
   if (remainingWords.length === 0) {
-    alert("모든 단어를 학습했습니다! 다시 처음부터 시작합니다.");
+    alert("모든 단어를 학습했습니다! 다시 처음부터 리모델링합니다.");
     remainingWords = [...WORDS];
+    totalSolved = 0;
+    totalTarget = 0;
   }
-  maxCount = Math.min(count, remainingWords.length);
+
+  // 이번에 추가로 가져올 개수
+  let actualCount = Math.min(count, remainingWords.length);
+  
+  // 1. 남은 단어에서 새로 뽑기
   let tempShuffled = [...remainingWords].sort(() => Math.random() - 0.5);
-  quizList = tempShuffled.slice(0, maxCount);
+  let newSet = tempShuffled.slice(0, actualCount);
 
-  const quizWordTexts = quizList.map(q => q.word);
-  remainingWords = remainingWords.filter(w => !quizWordTexts.includes(w.word));
+  // 2. 누적 리스트에 추가
+  quizList = [...quizList, ...newSet];
+  totalTarget += actualCount; // 전체 목표치 증가
 
-  currentIndex = 0;
-  document.getElementById("correctNote").innerHTML = "";
-  document.getElementById("wrongNote").innerHTML = "";
+  // 3. 주머니에서 제거
+  const newWords = newSet.map(q => q.word);
+  remainingWords = remainingWords.filter(w => !newWords.includes(w.word));
+
+  // 4. 기존 오답/정답 노트 유지 여부 (새로 시작할 때만 비우고 싶다면 이 로직을 조절)
+  // 여기서는 버튼 누를 때마다 노트를 초기화하지 않고 이어서 쌓이게 두었습니다.
+
   updateUI();
-  loadQuiz();
+  // 현재 문제가 진행 중이 아닐 때만 새로 로드 (끝난 상태에서 추가 버튼 눌렀을 때 대응)
+  if (currentIndex >= quizList.length - actualCount) {
+    loadQuiz();
+  }
 }
 
 function loadQuiz() {
   if (currentIndex >= quizList.length) {
-    document.getElementById("quizWord").innerText = "🎉 세트 종료!";
-    document.getElementById("quizChoices").innerHTML = "<p style='text-align:center;'>상단의 버튼을 눌러 다음 학습을 시작하세요.</p>";
+    document.getElementById("quizWord").innerText = "🎉 현재 세트 완료!";
+    document.getElementById("quizChoices").innerHTML = "<p style='text-align:center;'>추가 버튼을 눌러 학습을 이어가세요.</p>";
     return;
   }
 
@@ -115,14 +103,11 @@ function loadQuiz() {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
     btn.innerHTML = html;
-    btn.onclick = () => {
-      const isCorrect = (html === correctHTML);
-      submitAnswer(q.word, html, correctHTML, isCorrect);
-    };
+    btn.onclick = () => submitAnswer(q.word, html, correctHTML, html === correctHTML);
     choicesDiv.appendChild(btn);
   });
 
-  document.getElementById("progress").innerText = `진행: ${currentIndex + 1} / ${maxCount}`;
+  updateProgressDisplay();
 }
 
 function submitAnswer(word, userHTML, correctHTML, isCorrect) {
@@ -136,11 +121,17 @@ function submitAnswer(word, userHTML, correctHTML, isCorrect) {
   document.getElementById(target).prepend(div);
 
   currentIndex++;
+  totalSolved++; // 전체 누적 카운트 증가
   loadQuiz();
 }
 
 function updateUI() {
   document.getElementById("remaining-count").innerText = remainingWords.length;
+}
+
+function updateProgressDisplay() {
+    // '현재 푼 개수 / 전체 목표 개수' 표시
+    document.getElementById("progress").innerText = `진행: ${currentIndex} / ${totalTarget}`;
 }
 
 window.onload = function () {
@@ -151,8 +142,7 @@ window.onload = function () {
       remainingWords = [...data];
       document.getElementById("total-count").innerText = WORDS.length;
       updateUI();
-    })
-    .catch(err => console.error("데이터를 불러올 수 없습니다."));
+    });
 };
 </script>
 </head>
@@ -165,17 +155,18 @@ window.onload = function () {
 </div>
 
 <p>
-  학습할 개수 선택: 
-  <button class="count-btn" onclick="startQuiz(50)">50개</button>
-  <button class="count-btn" onclick="startQuiz(100)">100개</button>
-  <button class="count-btn" onclick="startQuiz(150)">150개</button>
+  학습할 개수 추가: 
+  <button class="count-btn" onclick="startQuiz(50)">+ 50개</button>
+  <button class="count-btn" onclick="startQuiz(100)">+ 100개</button>
+  <button class="count-btn" onclick="startQuiz(150)">+ 150개</button>
   <button class="count-btn" onclick="startQuiz(300)">전체</button>
 </p>
 
 <p id="progress">진행: 0 / 0</p>
 
 <div class="quiz-box">
-  <span id="quizWord">학습 개수를 선택해 주세요</span>
+  <span id="quizWord">개수 버튼을 눌러 시작하세요</span>
+  <br>
   <div id="quizChoices"></div>
 </div>
 
