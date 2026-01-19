@@ -7,265 +7,152 @@
 
 <style>
   body { font-family: 'Malgun Gothic', sans-serif; padding: 20px; line-height: 1.6; background-color: #f9f9f9; }
-  h2 { color: #333; }
-  .pos { color: #0070c0; font-weight: bold; }
+  .pos { color: #0070c0; font-weight: bold; margin-right: 4px; }
   .choice-btn { 
-    margin-bottom: 8px; 
-    padding: 10px 20px; 
-    width: 100%; 
-    text-align: left; 
-    cursor: pointer;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: background 0.2s;
+    margin-bottom: 8px; padding: 12px 20px; width: 100%; text-align: left; 
+    cursor: pointer; background-color: #fff; border: 1px solid #ddd; border-radius: 5px;
   }
   .choice-btn:hover { background-color: #f0f7ff; border-color: #0070c0; }
-  #progress { font-weight: bold; color: #555; margin-bottom: 10px; }
-  #remaining-count { color: #e74c3c; }
-  .note-container { 
-    border: 1px solid #ccc; 
-    padding: 15px; 
-    margin-top: 20px; 
-    max-height: 300px; 
-    overflow-y: auto; 
-    background-color: #fff;
-  }
-  .correct-item { color: green; margin-bottom: 5px; border-bottom: 1px solid #eee; }
-  .wrong-item { color: red; margin-bottom: 5px; border-bottom: 1px solid #eee; }
-  .quiz-box { 
-    border: 2px solid #0070c0; 
-    padding: 20px; 
-    border-radius: 10px; 
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-  #quizWord { font-size: 1.5rem; font-weight: bold; color: #2c3e50; }
-  button.count-btn {
-    padding: 8px 15px;
-    margin-right: 5px;
-    cursor: pointer;
-    border-radius: 4px;
-    border: 1px solid #0070c0;
-    background: #fff;
-    color: #0070c0;
-    font-weight: bold;
-  }
+  .quiz-box { border: 2px solid #0070c0; padding: 20px; border-radius: 10px; background-color: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+  #quizWord { font-size: 1.5rem; font-weight: bold; }
+  .note-container { border: 1px solid #ccc; padding: 15px; margin-top: 10px; max-height: 300px; overflow-y: auto; background-color: #fff; }
+  button.count-btn { padding: 8px 15px; margin-right: 5px; cursor: pointer; border-radius: 4px; border: 1px solid #0070c0; background: #fff; color: #0070c0; font-weight: bold; }
   button.count-btn:hover { background: #0070c0; color: #fff; }
 </style>
 
 <script>
-/* =========================
-   전역 변수
-   ========================= */
-let WORDS = [];         // 전체 원본 리스트
-let remainingWords = []; // 아직 한 번도 안 나온 단어들 (중복 방지용)
-let quizList = [];       // 현재 세트(50개 등)의 문제들
+let WORDS = [];
+let remainingWords = [];
+let quizList = [];
 let currentIndex = 0;
 let maxCount = 0;
 
-const COLOR_POS_LIST = ["명사", "동사", "형용사", "부사", "표현", "숙어"];
-
-/* =========================
-   유틸 함수
-   ========================= */
-function shuffle(arr) {
-  return [...arr].sort(() => Math.random() - 0.5);
-}
-
-function buildFullMeaning(meanings) {
-  return meanings.map(m => `${m.pos} ${m.meaning}`).join(" | ");
-}
-
-function renderFullMeaning(container, full) {
-  container.innerHTML = "";
-  const parts = full.split("|");
-
-  parts.forEach((raw, idx) => {
-    const part = raw.trim();
-    const spaceIdx = part.indexOf(" ");
-
-    let pos = "";
-    let meaning = part;
-
-    if (spaceIdx > 0) {
-      pos = part.substring(0, spaceIdx);
-      meaning = part.substring(spaceIdx + 1);
-    }
-
-    if (COLOR_POS_LIST.includes(pos)) {
-      const span = document.createElement("span");
-      span.className = "pos";
-      span.innerText = pos;
-      container.appendChild(span);
-      container.appendChild(document.createTextNode(" "));
-    } else if (pos) {
-      container.appendChild(document.createTextNode(pos + " "));
-    }
-
-    container.appendChild(document.createTextNode(meaning));
-
-    if (idx < parts.length - 1) {
-      container.appendChild(document.createTextNode(" | "));
-    }
+/* -------------------------------------------
+   [핵심] 품사 통합 로직: 같은 품사끼리 묶어주는 함수
+   ------------------------------------------- */
+function getCombinedMeanings(meanings) {
+  const group = {};
+  meanings.forEach(m => {
+    if (!group[m.pos]) group[m.pos] = [];
+    group[m.pos].push(m.meaning);
   });
+  
+  // 결과: "명사 뜻1, 뜻2 | 동사 뜻3" 형태의 문자열 반환
+  return Object.keys(group).map(pos => {
+    return `<span class="pos">${pos}</span> ${group[pos].join(", ")}`;
+  }).join(" | ");
 }
 
-/* =========================
-   퀴즈 로직 (핵심: 중복 방지)
-   ========================= */
 function startQuiz(count) {
-  // 남은 단어가 하나도 없으면 전체 리셋
   if (remainingWords.length === 0) {
-    alert("모든 단어를 학습했습니다! 다시 처음부터 리스트를 채웁니다.");
+    alert("모든 단어를 학습했습니다! 다시 처음부터 시작합니다.");
     remainingWords = [...WORDS];
   }
-
-  // 이번 판에 낼 개수 결정
   maxCount = Math.min(count, remainingWords.length);
-  
-  // 1. 남은 단어를 섞어서 요청한 개수만큼 추출
-  let tempShuffled = shuffle(remainingWords);
+  let tempShuffled = [...remainingWords].sort(() => Math.random() - 0.5);
   quizList = tempShuffled.slice(0, maxCount);
 
-  // 2. 핵심: 추출된 단어들을 '남은 단어 주머니'에서 영구 제거
   const quizWordTexts = quizList.map(q => q.word);
   remainingWords = remainingWords.filter(w => !quizWordTexts.includes(w.word));
 
   currentIndex = 0;
   document.getElementById("correctNote").innerHTML = "";
   document.getElementById("wrongNote").innerHTML = "";
-  
-  updateRemainingUI();
+  updateUI();
   loadQuiz();
 }
 
 function loadQuiz() {
   if (currentIndex >= quizList.length) {
-    document.getElementById("quizWord").innerText = "🎉 이번 세트 완료!";
-    document.getElementById("quizChoices").innerHTML = "<p>위의 버튼을 눌러 다음 세트를 시작하세요.</p>";
-    document.getElementById("progress").innerText = `진행: ${maxCount} / ${maxCount}`;
+    document.getElementById("quizWord").innerText = "🎉 세트 종료!";
+    document.getElementById("quizChoices").innerHTML = "";
     return;
   }
 
   const q = quizList[currentIndex];
-  const correct = buildFullMeaning(q.meanings);
+  const correctHTML = getCombinedMeanings(q.meanings);
 
-  // 오답 보기는 전체 WORDS(300개)에서 무작위로 추출
-  const wrongs = shuffle(
-    WORDS.filter(w => w.word !== q.word)
-  ).slice(0, 3).map(w => buildFullMeaning(w.meanings));
+  // 오답 3개 추출
+  const wrongs = [...WORDS].filter(w => w.word !== q.word)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3)
+    .map(w => getCombinedMeanings(w.meanings));
 
-  const choices = shuffle([...wrongs, correct]);
+  const choices = [...wrongs, correctHTML].sort(() => Math.random() - 0.5);
 
   document.getElementById("quizWord").innerText = q.word;
-  document.getElementById("correctAnswer").value = correct;
-
   const choicesDiv = document.getElementById("quizChoices");
   choicesDiv.innerHTML = "";
 
-  choices.forEach(c => {
+  choices.forEach(html => {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
-    renderFullMeaning(btn, c);
-    btn.onclick = () => submitAnswer(q.word, c, correct);
+    btn.innerHTML = html;
+    btn.onclick = () => {
+      const isCorrect = (html === correctHTML);
+      submitAnswer(q.word, html, correctHTML, isCorrect);
+    };
     choicesDiv.appendChild(btn);
   });
 
   document.getElementById("progress").innerText = `진행: ${currentIndex + 1} / ${maxCount}`;
 }
 
-function submitAnswer(word, user, correct) {
+function submitAnswer(word, userHTML, correctHTML, isCorrect) {
   const div = document.createElement("div");
-  div.className = (user === correct) ? "correct-item" : "wrong-item";
-  div.appendChild(
-    document.createTextNode((user === correct ? "✅ " : "❌ ") + word + " : ")
-  );
+  div.style.color = isCorrect ? "green" : "red";
+  div.style.borderBottom = "1px solid #eee";
+  div.style.marginBottom = "5px";
+  div.innerHTML = (isCorrect ? "✅ " : "❌ ") + `<b>${word}</b> : ` + correctHTML;
 
-  const span = document.createElement("span");
-  renderFullMeaning(span, correct);
-  div.appendChild(span);
-
-  if (user === correct)
-    document.getElementById("correctNote").prepend(div); // 최신이 위로 오게 prepend
-  else
-    document.getElementById("wrongNote").prepend(div);
+  const target = isCorrect ? "correctNote" : "wrongNote";
+  document.getElementById(target).prepend(div);
 
   currentIndex++;
   loadQuiz();
 }
 
-function updateRemainingUI() {
+function updateUI() {
   document.getElementById("remaining-count").innerText = remainingWords.length;
 }
 
-/* =========================
-   JSON 로딩
-   ========================= */
 window.onload = function () {
   fetch("words.json")
     .then(res => res.json())
     .then(data => {
       WORDS = data;
-      remainingWords = [...data]; // 처음에 전체 복사
-      document.getElementById("quizWord").innerText = "문제 개수를 선택하세요";
-      updateRemainingUI();
-    })
-    .catch(err => {
-      alert("words.json 파일을 찾을 수 없습니다. 경로를 확인해주세요.");
-      console.error(err);
+      remainingWords = [...data];
+      document.getElementById("total-count").innerText = WORDS.length;
+      updateUI();
     });
 };
 </script>
 </head>
-
 <body>
 
-<h2>📘 영단어 마스터 퀴즈</h2>
+<h2>📘 영단어 퀴즈 (품사 통합형)</h2>
 
-<div style="margin-bottom: 20px; background: #eee; padding: 10px; border-radius: 5px;">
-  <strong>미학습 단어: <span id="remaining-count">0</span>개</strong> / 전체: <span id="total-count">...</span>개
-  <br>
-  <small>* 페이지를 새로고침하면 학습 기록이 초기화됩니다.</small>
+<div style="background: #eee; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+  <strong>미학습: <span id="remaining-count">0</span></strong> / 전체: <span id="total-count">0</span>
 </div>
 
 <p>
-  새 세트 시작: 
   <button class="count-btn" onclick="startQuiz(50)">50개</button>
   <button class="count-btn" onclick="startQuiz(100)">100개</button>
-  <button class="count-btn" onclick="startQuiz(150)">150개</button>
   <button class="count-btn" onclick="startQuiz(300)">전체</button>
 </p>
 
 <p id="progress">진행: 0 / 0</p>
 
 <div class="quiz-box">
-  <p><b>단어:</b> <span id="quizWord">데이터 불러오는 중...</span></p>
-  <br><br>
-  <input type="hidden" id="correctAnswer">
+  <p><b>단어:</b> <span id="quizWord">개수를 선택하세요</span></p>
   <div id="quizChoices"></div>
 </div>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-  <div>
-    <h3>✅ 정답노트</h3>
-    <div id="correctNote" class="note-container"></div>
-  </div>
-  <div>
-    <h3>❌ 오답노트</h3>
-    <div id="wrongNote" class="note-container"></div>
-  </div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+  <div><h3>✅ 정답노트</h3><div id="correctNote" class="note-container"></div></div>
+  <div><h3>❌ 오답노트</h3><div id="wrongNote" class="note-container"></div></div>
 </div>
-
-<script>
-  // 전체 개수 표시용 스크립트 보조
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById("total-count").innerText = WORDS.length;
-      updateRemainingUI();
-    }, 500);
-  });
-</script>
 
 </body>
 </html>
