@@ -160,9 +160,11 @@ window.onload = function () {
 
 <p>
   문제 개수:
-  <button onclick="startQuiz(5)">5</button>
-  <button onclick="startQuiz(10)">10</button>
-  <button onclick="startQuiz(30)">30</button>
+  <button onclick="startQuiz(50)">5</button>
+  <button onclick="startQuiz(100)">10</button>
+  <button onclick="startQuiz(150)">30</button>
+  <button onclick="startQuiz(300)">30</button>
+
 </p>
 
 <p id="progress">진행: 0 / 0</p>
@@ -170,6 +172,7 @@ window.onload = function () {
 <div style="border:1px solid #ccc; padding:15px; margin-bottom:15px;">
   <p><b>단어:</b> <span id="quizWord">로딩 중...</span></p>
   <input type="hidden" id="correctAnswer">
+  <br><br>
   <div id="quizChoices"></div>
 </div>
 
