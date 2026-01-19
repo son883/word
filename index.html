@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Word Quiz</title>
+
+<style>
+  body { font-family: Arial, sans-serif; }
+  .pos { color: #0070c0; font-weight: bold; }
+  .choice-btn { margin-bottom: 6px; padding: 6px 12px; }
+</style>
+
+<script>
+/* =========================
+   전역 변수
+   ========================= */
+let WORDS = [];
+const COLOR_POS_LIST = ["명사", "동사", "형용사", "부사", "표현", "숙어"];
+let quizList = [];
+let currentIndex = 0;
+let maxCount = 0;
+
+/* =========================
+   유틸
+   ========================= */
+function shuffle(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
+
+function buildFullMeaning(meanings) {
+  return meanings.map(m => `${m.pos} ${m.meaning}`).join(" | ");
+}
+
+function renderFullMeaning(container, full) {
+  container.innerHTML = "";
+  const parts = full.split("|");
+
+  parts.forEach((raw, idx) => {
+    const part = raw.trim();
+    const spaceIdx = part.indexOf(" ");
+
+    let pos = "";
+    let meaning = part;
+
+    if (spaceIdx > 0) {
+      pos = part.substring(0, spaceIdx);
+      meaning = part.substring(spaceIdx + 1);
+    }
+
+    if (COLOR_POS_LIST.includes(pos)) {
+      const span = document.createElement("span");
+      span.className = "pos";
+      span.innerText = pos;
+      container.appendChild(span);
+      container.appendChild(document.createTextNode(" "));
+    } else if (pos) {
+      container.appendChild(document.createTextNode(pos + " "));
+    }
+
+    container.appendChild(document.createTextNode(meaning));
+
+    if (idx < parts.length - 1) {
+      container.appendChild(document.createTextNode(" | "));
+    }
+  });
+}
+
+/* =========================
+   퀴즈 로직
+   ========================= */
+function startQuiz(count) {
+  maxCount = Math.min(count, WORDS.length);
+  quizList = shuffle(WORDS).slice(0, maxCount);
+  currentIndex = 0;
+
+  document.getElementById("correctNote").innerHTML = "";
+  document.getElementById("wrongNote").innerHTML = "";
+
+  loadQuiz();
+}
+
+function loadQuiz() {
+  if (currentIndex >= quizList.length) {
+    document.getElementById("quizWord").innerText = "🎉 모든 문제가 끝났습니다!";
+    document.getElementById("quizChoices").innerHTML = "";
+    document.getElementById("progress").innerText =
+      `진행: ${maxCount} / ${maxCount}`;
+    return;
+  }
+
+  const q = quizList[currentIndex];
+  const correct = buildFullMeaning(q.meanings);
+
+  const wrongs = shuffle(
+    WORDS.filter(w => w.word !== q.word)
+  ).slice(0, 3).map(w => buildFullMeaning(w.meanings));
+
+  const choices = shuffle([...wrongs, correct]);
+
+  document.getElementById("quizWord").innerText = q.word;
+  document.getElementById("correctAnswer").value = correct;
+
+  const choicesDiv = document.getElementById("quizChoices");
+  choicesDiv.innerHTML = "";
+
+  choices.forEach(c => {
+    const btn = document.createElement("button");
+    btn.className = "choice-btn";
+    renderFullMeaning(btn, c);
+    btn.onclick = () => submitAnswer(q.word, c, correct);
+    choicesDiv.appendChild(btn);
+    choicesDiv.appendChild(document.createElement("br"));
+  });
+
+  document.getElementById("progress").innerText =
+    `진행: ${currentIndex} / ${maxCount}`;
+}
+
+function submitAnswer(word, user, correct) {
+  const div = document.createElement("div");
+  div.appendChild(
+    document.createTextNode((user === correct ? "✅ " : "❌ ") + word + " : ")
+  );
+
+  const span = document.createElement("span");
+  renderFullMeaning(span, correct);
+  div.appendChild(span);
+
+  if (user === correct)
+    document.getElementById("correctNote").appendChild(div);
+  else
+    document.getElementById("wrongNote").appendChild(div);
+
+  currentIndex++;
+  loadQuiz();
+}
+
+/* =========================
+   JSON 로드
+   ========================= */
+window.onload = function () {
+  fetch("words.json")
+    .then(res => res.json())
+    .then(data => {
+      WORDS = data;
+      document.getElementById("quizWord").innerText =
+        "문제 개수를 선택하세요";
+    })
+    .catch(err => {
+      alert("words.json을 불러오지 못했습니다.");
+      console.error(err);
+    });
+};
+</script>
+</head>
+
+<body>
+
+<h2>📘 영단어 퀴즈</h2>
+
+<p>
+  문제 개수:
+  <button onclick="startQuiz(5)">5</button>
+  <button onclick="startQuiz(10)">10</button>
+  <button onclick="startQuiz(30)">30</button>
+</p>
+
+<p id="progress">진행: 0 / 0</p>
+
+<div style="border:1px solid #ccc; padding:15px; margin-bottom:15px;">
+  <p><b>단어:</b> <span id="quizWord">로딩 중...</span></p>
+  <input type="hidden" id="correctAnswer">
+  <div id="quizChoices"></div>
+</div>
+
+<h3>✅ 정답노트</h3>
+<div id="correctNote" style="border:1px solid green; padding:10px;"></div>
+
+<h3>❌ 오답노트</h3>
+<div id="wrongNote" style="border:1px solid red; padding:10px;"></div>
+
+</body>
+</html>
