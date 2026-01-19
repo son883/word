@@ -2,26 +2,72 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Word Quiz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영단어 마스터 퀴즈</title>
 
 <style>
-  body { font-family: Arial, sans-serif; }
+  body { font-family: 'Malgun Gothic', sans-serif; padding: 20px; line-height: 1.6; background-color: #f9f9f9; }
+  h2 { color: #333; }
   .pos { color: #0070c0; font-weight: bold; }
-  .choice-btn { margin-bottom: 6px; padding: 6px 12px; }
+  .choice-btn { 
+    margin-bottom: 8px; 
+    padding: 10px 20px; 
+    width: 100%; 
+    text-align: left; 
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background 0.2s;
+  }
+  .choice-btn:hover { background-color: #f0f7ff; border-color: #0070c0; }
+  #progress { font-weight: bold; color: #555; margin-bottom: 10px; }
+  #remaining-count { color: #e74c3c; }
+  .note-container { 
+    border: 1px solid #ccc; 
+    padding: 15px; 
+    margin-top: 20px; 
+    max-height: 300px; 
+    overflow-y: auto; 
+    background-color: #fff;
+  }
+  .correct-item { color: green; margin-bottom: 5px; border-bottom: 1px solid #eee; }
+  .wrong-item { color: red; margin-bottom: 5px; border-bottom: 1px solid #eee; }
+  .quiz-box { 
+    border: 2px solid #0070c0; 
+    padding: 20px; 
+    border-radius: 10px; 
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  #quizWord { font-size: 1.5rem; font-weight: bold; color: #2c3e50; }
+  button.count-btn {
+    padding: 8px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #0070c0;
+    background: #fff;
+    color: #0070c0;
+    font-weight: bold;
+  }
+  button.count-btn:hover { background: #0070c0; color: #fff; }
 </style>
 
 <script>
 /* =========================
    전역 변수
    ========================= */
-let WORDS = [];
-const COLOR_POS_LIST = ["명사", "동사", "형용사", "부사", "표현", "숙어"];
-let quizList = [];
+let WORDS = [];         // 전체 원본 리스트
+let remainingWords = []; // 아직 한 번도 안 나온 단어들 (중복 방지용)
+let quizList = [];       // 현재 세트(50개 등)의 문제들
 let currentIndex = 0;
 let maxCount = 0;
 
+const COLOR_POS_LIST = ["명사", "동사", "형용사", "부사", "표현", "숙어"];
+
 /* =========================
-   유틸
+   유틸 함수
    ========================= */
 function shuffle(arr) {
   return [...arr].sort(() => Math.random() - 0.5);
@@ -66,31 +112,46 @@ function renderFullMeaning(container, full) {
 }
 
 /* =========================
-   퀴즈 로직
+   퀴즈 로직 (핵심: 중복 방지)
    ========================= */
 function startQuiz(count) {
-  maxCount = Math.min(count, WORDS.length);
-  quizList = shuffle(WORDS).slice(0, maxCount);
-  currentIndex = 0;
+  // 남은 단어가 하나도 없으면 전체 리셋
+  if (remainingWords.length === 0) {
+    alert("모든 단어를 학습했습니다! 다시 처음부터 리스트를 채웁니다.");
+    remainingWords = [...WORDS];
+  }
 
+  // 이번 판에 낼 개수 결정
+  maxCount = Math.min(count, remainingWords.length);
+  
+  // 1. 남은 단어를 섞어서 요청한 개수만큼 추출
+  let tempShuffled = shuffle(remainingWords);
+  quizList = tempShuffled.slice(0, maxCount);
+
+  // 2. 핵심: 추출된 단어들을 '남은 단어 주머니'에서 영구 제거
+  const quizWordTexts = quizList.map(q => q.word);
+  remainingWords = remainingWords.filter(w => !quizWordTexts.includes(w.word));
+
+  currentIndex = 0;
   document.getElementById("correctNote").innerHTML = "";
   document.getElementById("wrongNote").innerHTML = "";
-
+  
+  updateRemainingUI();
   loadQuiz();
 }
 
 function loadQuiz() {
   if (currentIndex >= quizList.length) {
-    document.getElementById("quizWord").innerText = "🎉 모든 문제가 끝났습니다!";
-    document.getElementById("quizChoices").innerHTML = "";
-    document.getElementById("progress").innerText =
-      `진행: ${maxCount} / ${maxCount}`;
+    document.getElementById("quizWord").innerText = "🎉 이번 세트 완료!";
+    document.getElementById("quizChoices").innerHTML = "<p>위의 버튼을 눌러 다음 세트를 시작하세요.</p>";
+    document.getElementById("progress").innerText = `진행: ${maxCount} / ${maxCount}`;
     return;
   }
 
   const q = quizList[currentIndex];
   const correct = buildFullMeaning(q.meanings);
 
+  // 오답 보기는 전체 WORDS(300개)에서 무작위로 추출
   const wrongs = shuffle(
     WORDS.filter(w => w.word !== q.word)
   ).slice(0, 3).map(w => buildFullMeaning(w.meanings));
@@ -109,15 +170,14 @@ function loadQuiz() {
     renderFullMeaning(btn, c);
     btn.onclick = () => submitAnswer(q.word, c, correct);
     choicesDiv.appendChild(btn);
-    choicesDiv.appendChild(document.createElement("br"));
   });
 
-  document.getElementById("progress").innerText =
-    `진행: ${currentIndex} / ${maxCount}`;
+  document.getElementById("progress").innerText = `진행: ${currentIndex + 1} / ${maxCount}`;
 }
 
 function submitAnswer(word, user, correct) {
   const div = document.createElement("div");
+  div.className = (user === correct) ? "correct-item" : "wrong-item";
   div.appendChild(
     document.createTextNode((user === correct ? "✅ " : "❌ ") + word + " : ")
   );
@@ -127,27 +187,32 @@ function submitAnswer(word, user, correct) {
   div.appendChild(span);
 
   if (user === correct)
-    document.getElementById("correctNote").appendChild(div);
+    document.getElementById("correctNote").prepend(div); // 최신이 위로 오게 prepend
   else
-    document.getElementById("wrongNote").appendChild(div);
+    document.getElementById("wrongNote").prepend(div);
 
   currentIndex++;
   loadQuiz();
 }
 
+function updateRemainingUI() {
+  document.getElementById("remaining-count").innerText = remainingWords.length;
+}
+
 /* =========================
-   JSON 로드
+   JSON 로딩
    ========================= */
 window.onload = function () {
   fetch("words.json")
     .then(res => res.json())
     .then(data => {
       WORDS = data;
-      document.getElementById("quizWord").innerText =
-        "문제 개수를 선택하세요";
+      remainingWords = [...data]; // 처음에 전체 복사
+      document.getElementById("quizWord").innerText = "문제 개수를 선택하세요";
+      updateRemainingUI();
     })
     .catch(err => {
-      alert("words.json을 불러오지 못했습니다.");
+      alert("words.json 파일을 찾을 수 없습니다. 경로를 확인해주세요.");
       console.error(err);
     });
 };
@@ -156,31 +221,50 @@ window.onload = function () {
 
 <body>
 
-<h2>📘 영단어 퀴즈</h2>
+<h2>📘 영단어 마스터 퀴즈</h2>
+
+<div style="margin-bottom: 20px; background: #eee; padding: 10px; border-radius: 5px;">
+  <strong>미학습 단어: <span id="remaining-count">0</span>개</strong> / 전체: <span id="total-count">...</span>개
+  <br>
+  <small>* 페이지를 새로고침하면 학습 기록이 초기화됩니다.</small>
+</div>
 
 <p>
-  문제 개수:
-  <button onclick="startQuiz(50)">50</button>
-  <button onclick="startQuiz(100)">100</button>
-  <button onclick="startQuiz(150)">150</button>
-  <button onclick="startQuiz(300)">300</button>
-
+  새 세트 시작: 
+  <button class="count-btn" onclick="startQuiz(50)">50개</button>
+  <button class="count-btn" onclick="startQuiz(100)">100개</button>
+  <button class="count-btn" onclick="startQuiz(150)">150개</button>
+  <button class="count-btn" onclick="startQuiz(300)">전체</button>
 </p>
 
 <p id="progress">진행: 0 / 0</p>
 
-<div style="border:1px solid #ccc; padding:15px; margin-bottom:15px;">
-  <p><b>단어:</b> <span id="quizWord">로딩 중...</span></p>
+<div class="quiz-box">
+  <p><b>단어:</b> <span id="quizWord">데이터 불러오는 중...</span></p>
   <input type="hidden" id="correctAnswer">
-  <br><br>
   <div id="quizChoices"></div>
 </div>
 
-<h3>✅ 정답노트</h3>
-<div id="correctNote" style="border:1px solid green; padding:10px;"></div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+  <div>
+    <h3>✅ 정답노트</h3>
+    <div id="correctNote" class="note-container"></div>
+  </div>
+  <div>
+    <h3>❌ 오답노트</h3>
+    <div id="wrongNote" class="note-container"></div>
+  </div>
+</div>
 
-<h3>❌ 오답노트</h3>
-<div id="wrongNote" style="border:1px solid red; padding:10px;"></div>
+<script>
+  // 전체 개수 표시용 스크립트 보조
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById("total-count").innerText = WORDS.length;
+      updateRemainingUI();
+    }, 500);
+  });
+</script>
 
 </body>
 </html>
